@@ -33,7 +33,8 @@ import AutoRedirectPage from "./pages/AutoRedirectPage.tsx";
 import NotFoundPage from "./pages/NotFoundPage.tsx";
 // import FocusInput from "./components/FocusInput.tsx";
 import UncontrolledInput from "./components/UncontrolledInput.tsx";
-import MultiFieldForm from "./components/MultiFieldForm.tsx";
+// import MultiFieldForm from "./components/MultiFieldForm.tsx";
+import MultiFieldFormWithValidation from "./components/MultiFieldFormWithValidation.tsx";
 
 
 function App() {
@@ -74,7 +75,8 @@ function App() {
                 <Route element={<RouterLayout/>}>
                     {/*<Route index element={<HomePage/>}/>*/}
                     {/*<Route index element={<FocusInput/>}/>*/}
-                    <Route index element={<MultiFieldForm/>}/>
+                    {/*<Route index element={<MultiFieldForm/>}/>*/}
+                    <Route index element={<MultiFieldFormWithValidation/>}/>
                     <Route index element={<UncontrolledInput/>}/>
                 </Route>
 

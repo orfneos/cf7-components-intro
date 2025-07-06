@@ -40,15 +40,12 @@ const MultiFieldFormWithValidation = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-
         const validationErrors = validateForm(values);
-
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
             setSubmittedData(null);
             return;
         }
-
         setSubmittedData(values);
         setValues(initialValues);
         setErrors(null);
@@ -77,33 +74,45 @@ const MultiFieldFormWithValidation = () => {
         <>
             <div className="flex max-w-sm mx-auto mt-8">
             <form onSubmit={handleSubmit} className="space-y-4">
-                <input
-                    type="text"
-                    name="name"
-                    value={values.name}
-                    placeholder="Name"
-                    onChange={handleChange}
-                    className=" px-4 py-2 rounded border w-full"
-                    required
-                />
-                <input
-                    type="email"
-                    name="email"
-                    value={values.email}
-                    placeholder="Email"
-                    onChange={handleChange}
-                    className="border px-4 py-2 rounded w-full "
-                    required
-                />
-                <textarea
-                    name="message"
-                    value={values.message}
-                    placeholder="type your message"
-                    onChange={handleChange}
-                    className="border px-4 py-2 rounded w-full "
-                    minLength={5}
-                    required
-                ></textarea>
+                <div>
+                    <input
+                        type="text"
+                        name="name"
+                        value={values.name}
+                        placeholder="Name"
+                        onChange={handleChange}
+                        className=" px-4 py-2 rounded border w-full"
+                    />
+                    {errors?.name && (
+                        <p className="text-cf-dark-red">{errors.name}</p>
+                    )}
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        name="email"
+                        value={values.email}
+                        placeholder="Email"
+                        onChange={handleChange}
+                        className="border px-4 py-2 rounded w-full "
+                    />
+                    {errors?.email && (
+                        <p className="text-cf-dark-red">{errors.email}</p>
+                    )}
+                </div>
+                <div>
+                    <textarea
+                        name="message"
+                        value={values.message}
+                        placeholder="type your message"
+                        onChange={handleChange}
+                        className="border px-4 py-2 rounded w-full "
+                        minLength={5}
+                    ></textarea>
+                    {errors?.message && (
+                        <p className="text-cf-dark-red">{errors.message}</p>
+                    )}
+                </div>
                 <div className="flex gap-4">
                     <button
                         type="submit"
